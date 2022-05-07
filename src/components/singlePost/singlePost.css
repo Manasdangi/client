@@ -97,3 +97,8 @@
   align-self: flex-end;
   margin-top: 20px;
 }
+
+.singlePostlist{
+  font-weight: bold;
+  color: #666;
+}

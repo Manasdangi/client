@@ -103,6 +103,8 @@ export default function Write() {
  <label > friendship</label>
 <input type="checkbox" id="cat"  value="health" />
  <label > health</label>
+<input type="checkbox" id="cat"  value="socialmedia" />
+ <label > socialmedia</label>
 <input type="checkbox" id="cat"  value="" />
  <label > college</label><br></br>
 

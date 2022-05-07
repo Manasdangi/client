@@ -14,17 +14,22 @@ export default function SinglePost() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
+  const [array,setarray]=useState([]);
 
+  
   useEffect(() => {
     const getPost = async () => {
       const res = await axios.get("/posts/" + path);
       setPost(res.data);
       setTitle(res.data.title);
       setDesc(res.data.desc);
+      setarray(res.data.categories);
+    //  console.log(array);
+
     };
     getPost();
   }, [path]);
-
+  console.log(array);
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {
@@ -44,6 +49,7 @@ export default function SinglePost() {
       setUpdateMode(false)
     } catch (err) {console.log(err)}
   };
+
 
   return (
     <div className="singlePost">
@@ -96,6 +102,11 @@ export default function SinglePost() {
         ) : (
           <p className="singlePostDesc">{desc}</p>
         )}
+        <ul className="singlePostlist">
+        {
+          array.map(name=><li key={name} >{name} </li>)
+        }
+        </ul>
         {updateMode && (
           <button className="singlePostButton" onClick={handleUpdate}>
             Update
