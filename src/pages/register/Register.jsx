@@ -10,6 +10,7 @@ export default function Register() {
   const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
     setError(false);
     try {
@@ -20,6 +21,7 @@ export default function Register() {
       });
       res.data && window.location.replace("/login");
     } catch (err) {
+      console.log(err)
       setError(true);
     }
   };

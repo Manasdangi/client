@@ -43,7 +43,7 @@ export default function Topbar() {
     {  user ? (
        <Link to="/settings"> <img className="topimg"
        src={pf + user.profilePic}
-       alt="" /></Link>)
+       alt="profile picture" /></Link>)
        :(
            <ul className="toplist">
 

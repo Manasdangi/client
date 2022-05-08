@@ -31,22 +31,20 @@ export default function Write() {
       desc,
       categories
     };
-   // console.log(user.username)
-    console.log(newPost)
     if (file) {
       const data =new FormData();
       const filename = Date.now() + file.name;
+      newPost.photo = filename;
       data.append("name", filename);
       data.append("file", file);
-      newPost.photo = filename;
       try {
         await axios.post("/upload", data);
-      } catch (err) {}
+      } catch (err) {console.log(err);}
     }
     try {
       const res = await axios.post("/posts", newPost);
       window.location.replace("/post/" + res.data._id)
-      console.log(newPost);
+     // console.log(newPost);
     } catch (err) {console.log(err);}
   };
   return (

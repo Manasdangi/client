@@ -13,18 +13,18 @@ const Reducer=(state,action)=>{
                   isfetching:false,
                   error:false
               };
-              case "LOGIN_FAILURE":
+          case "LOGIN_FAILURE":
                   return{
                       user:null,
                       isfetching:false,
                       error:true
                   };
                   
-                      case "UPDATE_START":
-          return{
-             ...state,
-             isfetching:true,
-          };
+         case "UPDATE_START":
+            return{
+              ...state,
+              isfetching:true,
+            };
           case "UPDATE_SUCCESS":
               return {
                   user:action.payload,

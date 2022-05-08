@@ -6,11 +6,13 @@ import { Context } from "../../context/Context";
 import "./singlePost.css";
 
 export default function SinglePost() {
+
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
   const PF = "http://localhost:5000/images/";
   const { user } = useContext(Context);
+
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [updateMode, setUpdateMode] = useState(false);
@@ -24,12 +26,12 @@ export default function SinglePost() {
       setTitle(res.data.title);
       setDesc(res.data.desc);
       setarray(res.data.categories);
-    //  console.log(array);
 
     };
     getPost();
   }, [path]);
   console.log(array);
+
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {
@@ -70,14 +72,17 @@ export default function SinglePost() {
             {title}
             {post.username === user?.username && (
               <div className="singlePostEdit">
+
                 <i
                   className="singlePostIcon far fa-edit"
                   onClick={() => setUpdateMode(true)}
                 ></i>
+
                 <i
                   className="singlePostIcon far fa-trash-alt"
                   onClick={handleDelete}
                 ></i>
+                
               </div>
             )}
           </h1>

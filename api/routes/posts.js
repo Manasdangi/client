@@ -1,5 +1,4 @@
 const router = require("express").Router();
-const User = require("../models/User");
 const Post = require("../models/Post");
 
 //CREATE POST
@@ -16,6 +15,7 @@ router.post("/", async (req, res) => {
 //UPDATE POST
 router.put("/:id", async (req, res) => {
   try {
+  //  console.log(req.params.id);
     const post = await Post.findById(req.params.id);
     if (post.username === req.body.username) {
       try {

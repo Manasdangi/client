@@ -15,7 +15,9 @@ export default function Settings() {
   const PF = "http://localhost:5000/images/"
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
+    
     dispatch({ type: "UPDATE_START" });
     const updatedUser = {
       userId: user._id,
@@ -44,9 +46,9 @@ export default function Settings() {
 
   const handleDelete=async()=>{
     try {
-      await axios.delete(`/users/${user._id}`, {
-        data: { userId: user._id},
-      });
+      // await axios.delete(`/users/${user._id}`, {
+      //   data: { userId: user._id},
+      // });
      // window.location.replace("/");
     }
     catch(err) {console.log(err)}
